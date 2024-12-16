@@ -14,14 +14,12 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-
-// CORS Middleware
 const corsOptions = {
-  origin: ["https://maryville-capstone.netlify.app"], // Replace with your frontend's production URL
-  methods: ["GET", "POST", "PUT", "DELETE"], // Add allowed methods as needed
-  credentials: true, // Enable credentials if needed
+  origin: "https://maryville-capstone.netlify.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
 };
-app.use(cors(corsOptions)); // Apply CORS with specific options
+app.use(cors(corsOptions));
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
