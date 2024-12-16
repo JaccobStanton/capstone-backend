@@ -59,15 +59,14 @@ app.use("/api", s3ImageRoute);
 app.use("/api", s3ImageRouteAnalyzed);
 app.use("/api", s3LogsRoute);
 app.use("/api", s3DiagnosticsLogsRoute);
+app.get("/", (req, res) => {
+  res.send("Hello, this is the root of the API. Try /api/systems.");
+});
 
 // Catch-all for undefined routes
 app.use((req, res, next) => {
   console.log(`Route not found: ${req.method} ${req.originalUrl}`);
   res.status(404).send("Route not found.");
-});
-
-app.get("/", (req, res) => {
-  res.send("Hello, this is the root of the API. Try /api/systems.");
 });
 
 // Start the server
