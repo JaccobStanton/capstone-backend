@@ -13,11 +13,11 @@ const s3DiagnosticsLogsRoute = require("./routes/s3DiagnosticsLogsRoute");
 const app = express();
 
 // Middleware
-app.use(express.json());
-const corsOptions = {
-  origin: "*",
-};
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
