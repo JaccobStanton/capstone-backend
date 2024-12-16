@@ -5,7 +5,7 @@
 
 const express = require("express");
 const router = express.Router();
-const AgriScanSystem = require("../models/AgriScanSystem");
+const AgriScanSystem = require("../models/agriScanSystem");
 const Sensor = require("../models/sensor");
 // const ImageCollection = require("../models/images");
 
