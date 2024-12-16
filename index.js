@@ -1,9 +1,9 @@
 // Main server entry point
 require("dotenv").config();
 const cors = require("cors");
-
 const express = require("express");
 const mongoose = require("mongoose");
+
 const agriScanRoutes = require("./routes/agriScanRoutes");
 const s3ImageRoute = require("./routes/s3ImageRoute");
 const s3ImageRouteAnalyzed = require("./routes/s3ImageRouteAnalyzed");
@@ -15,13 +15,13 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-app.use(cors()); // Allow all origins
-
-//!production
+// CORS Middleware
 const corsOptions = {
-  origin: ["https://maryville-capstone.netlify.app/"], // Replace with your frontend's production URL
+  origin: ["https://maryville-capstone.netlify.app"], // Replace with your frontend's production URL
+  methods: ["GET", "POST", "PUT", "DELETE"], // Add allowed methods as needed
+  credentials: true, // Enable credentials if needed
 };
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); // Apply CORS with specific options
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
