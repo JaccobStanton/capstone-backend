@@ -18,10 +18,10 @@ app.use(express.json());
 app.use(cors()); // Allow all origins
 
 //!production
-// const corsOptions = {
-//   origin: ["http://yourfrontendurl.com"], // Replace with your frontend's production URL
-// };
-// app.use(cors(corsOptions));
+const corsOptions = {
+  origin: ["https://maryville-capstone.netlify.app/"], // Replace with your frontend's production URL
+};
+app.use(cors(corsOptions));
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
