@@ -66,6 +66,10 @@ app.use((req, res, next) => {
   res.status(404).send("Route not found.");
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello, this is the root of the API. Try /api/systems.");
+});
+
 // Start the server
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
