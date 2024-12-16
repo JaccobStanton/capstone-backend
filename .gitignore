@@ -1,0 +1,5 @@
+.DS_Store
+.vite/
+node_modules/
+.env.local
+.env
