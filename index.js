@@ -15,9 +15,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 const corsOptions = {
-  origin: "https://maryville-capstone.netlify.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
+  origin: "*",
 };
 app.use(cors(corsOptions));
 
