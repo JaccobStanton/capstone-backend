@@ -73,12 +73,13 @@ function findDroneById(system, droneId) {
 // GET /api/systems - returns all systems
 router.get("/systems", async (req, res) => {
   try {
-    const mainDoc = await getMainDoc();
-    if (!mainDoc) return res.status(404).json({ error: "No systems found" });
-
-    res.json(mainDoc.systems);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.log("Received request to /api/systems");
+    const systems = await System.find();
+    console.log("Systems fetched from database:", systems);
+    res.json(systems);
+  } catch (error) {
+    console.error("Error fetching systems:", error);
+    res.status(500).json({ error: "Server error" });
   }
 });
 
